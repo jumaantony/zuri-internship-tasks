@@ -1,8 +1,25 @@
 import { Controller, Get, Query } from '@nestjs/common';
+import { ApiOperation, ApiResponse } from '@nestjs/swagger';
+import { slackResponseExample } from './slack-responseexample';
 
 @Controller('slack')
 export class SlackController {
   @Get()
+  @ApiOperation({
+    summary: 'Get the current day, time, slack name and track',
+    description: 'This endpoint returns the current day, time, slack name and track',
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'The current day, time, slack name and track',
+    content: {
+      'application/json': {
+        schema: {
+          example: slackResponseExample,
+        },
+      },
+    },
+  })
   getEndPoint(
     @Query('slack_name') slack_name: string,
     @Query('track') track: string,
@@ -17,8 +34,8 @@ export class SlackController {
       current_day: current_day,
       utc_time: utcTime,
       track: track,
-      github_file_url: 'git hub link here',
-      github_repo_url: 'git hub repo link here',
+      github_file_url: 'https://github.com/jumaantony/zuri-internship-tasks/blob/main/Task_1/src/slack/slack.controller.ts',
+      github_repo_url: 'https://github.com/jumaantony/zuri-internship-tasks/tree/main/Task_1',
       status_code: 200,
     };
     return response;
