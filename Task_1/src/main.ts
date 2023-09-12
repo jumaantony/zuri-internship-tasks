@@ -9,11 +9,10 @@ async function bootstrap() {
     .setTitle('Slack API')
     .setDescription('Sample slack APi')
     .setVersion('1.0')
-    .addTag('api')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
-  await app.listen(3000);
+  await app.listen(80);
   enableCors: true;
 }
 bootstrap();
