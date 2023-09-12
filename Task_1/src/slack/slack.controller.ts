@@ -2,7 +2,7 @@ import { Controller, Get, Query } from '@nestjs/common';
 import { ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { slackResponseExample } from './slack-responseexample';
 
-@Controller('slack')
+@Controller()
 export class SlackController {
   @Get()
   @ApiOperation({

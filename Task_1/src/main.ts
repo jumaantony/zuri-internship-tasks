@@ -9,6 +9,7 @@ async function bootstrap() {
     .setTitle('Slack API')
     .setDescription('Sample slack APi')
     .setVersion('1.0')
+    .addTag('slack')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
